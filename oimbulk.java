@@ -71,7 +71,6 @@ public class oimbulk {
         
         boolean ret = false;
         oimbulk oim=new oimbulk();
-        oim.OIMConnection(); 
       
         int length = args.length;
         if (length < 4 ) {
@@ -86,6 +85,7 @@ public class oimbulk {
         }
 
       
+        oim.OIMConnection(); 
       //boolean r = oim.setEmail("CLCNRC74H21F839C", "test@test.it");
       //System.out.println(r);
       //System.exit(0);
@@ -239,7 +239,7 @@ public class oimbulk {
                 userAttributeValueMap.put("First Name", firstName);
                 userAttributeValueMap.put("Last Name", lastName);
                 userAttributeValueMap.put("Email", email);
-                if (company != null && !company.isEmpty()) {userAttributeValueMap.put("Societa", company);}
+                if (company != null && !company.isEmpty()) {userAttributeValueMap.put("SOCIETA", company);}
                 userAttributeValueMap.put("usr_password", password);
                 userAttributeValueMap.put("Role", Role);
                 userAttributeValueMap.put("CF", codiceFiscale);
@@ -727,7 +727,7 @@ public class oimbulk {
     attrNames = new HashSet<String>();
     attrNames.add("User Login");
     attrNames.add("CF");
-    attrNames.add("Societa");
+    attrNames.add("SOCIETA");
     
     SearchCriteria criteria =  new SearchCriteria("CF", cod_fisc, SearchCriteria.Operator.EQUAL);
 
@@ -756,7 +756,7 @@ public class oimbulk {
                     //System.out.print("\nEntityId: " + user.getEntityId()  + ", Id: " + user.getId() + ", Attributes: " + buf.toString() );
                 HashMap<String, Object> mapAttrs = null;    
                 mapAttrs = new HashMap<String, Object>();
-                mapAttrs.put("Societa", newCompany);
+                mapAttrs.put("SOCIETA", newCompany);
                 
                 User user2 = new User((String)attributes.get("User Login"), mapAttrs);
                 //user.setEndDate(newdate);
